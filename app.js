@@ -2,8 +2,13 @@ const express = require("express");
 const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 3001;
+const secret = process.env.SECRET || "secret";
 
-app.get("/", (req, res) => res.type('html').send(html));
+app.get("/", (req, res) => {
+  res.type('html').send(html);
+  console.log(`the secret is ${secret}`);
+
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
